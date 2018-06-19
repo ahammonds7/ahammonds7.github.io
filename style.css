@@ -1,14 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
-/* :: Import All CSS */
-
-@import url(css/bootstrap.min.css);
-@import url(css/animate.css);
-@import url(css/owl.carousel.css);
-@import url(css/magnific-popup.css);
-@import url(css/font-awesome.min.css);
-@import url(css/themify-icons.css);
-/* :: Base CSS */
-
 * {
   margin: 0;
   padding: 0;
@@ -32,13 +22,13 @@ p {
   color: #565656;
   font-size: 15px;
   line-height: 2;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 45px 45px 45px;
+  grid-template-rows: 45px 45px 1fr 45px;
 }
 
 #logo {
@@ -62,14 +52,93 @@ body {
 #links > a {
   margin: 15px;
   line-height: 45px;
-  font-size: 15px;
+  font-size: 13px;
   color: #fff;
   text-decoration: none;
 }
 
-footer {
+main {
   grid-column: 1 / span 4;
   grid-row: 3 / span 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+}
+
+header {
+  width: Calc(100% - 20px);
+  background-color: #5a5a5a;
+  padding: 5px 5px 5px 15px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  grid-column: 1 / span 6;
+  height: 30px;
+}
+
+header > h2 {
+  color: #fff;
+  font-size: 20px;
+}
+
+portfolio {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+portfolio > column {
+  flex: 50%;
+  max-width: Calc(50% - 10px);
+  padding: 0 5px;
+}
+
+portfolio > column > img {
+  width: 100%;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+
+prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 35px;
+  padding: 5px;
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 6;
+}
+
+prices > div {
+  padding: 5px;
+  border-bottom: dotted #3d3d3d 1px;
+}
+
+prices > div:nth-child(odd) {
+  grid-column: 1 / span 1; 
+}
+
+prices > div:nth-child(even) {
+  grid-column: 2 / span 1;
+  text-align: right;
+}
+
+bio {
+  grid-column: 1 / span 6;
+  padding: 10px;
+  display: block;
+}
+
+appointment {
+  grid-column: 1 / span 6;
+  padding: 10px;
+  display: block;
+}
+
+footer {
+  grid-column: 1 / span 4;
+  grid-row: 4 / span 1;
   background-color: #363636;
   text-align: center;
   line-height: 45px;
@@ -77,6 +146,11 @@ footer {
   font-size: 12px;
 }
 
+@media only screen and (max-width: 325px) {
+  body {
+    grid-template-rows: 45px 90px 1fr 45px;
+  }
+}
 @media only screen and (max-width: 415px) {
   #logo {
     grid-column: 1 / span 4;
@@ -91,5 +165,53 @@ footer {
     text-align: center;
     padding: 0;
     background-color: #414141;
+  }
+}
+
+@media only screen and (min-width: 415px) {
+  body {
+    grid-template-rows: 45px 1fr 45px;
+  }
+  main {
+    grid-row: 2 / span 1;
+  }
+  portfolio {
+    grid-column: 2 / span 4;
+  }
+  portfolio > column {
+    flex: 25%;
+    max-width: Calc(25% - 50px);
+    padding: 0 25px;
+  }
+  portfolio > column > img {
+    padding: 25px 0;
+  }
+  footer {
+    grid-row: 3 / span 1;
+  }
+  #pricesHeader {
+    grid-column: 3 / span 2;
+    grid-row: 3 / span 1;
+  }
+  prices {
+    grid-column: 3 / span 2;
+  }
+  #bioHeader {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+  }
+  bio {
+    grid-column: 1 / span 2;
+  }
+  #appointmentHeader {
+    grid-column: 5 / span 2;
+    grid-row: 3 / span 1;
+  }
+  appointment {
+    grid-column: 5 / span 2;
+  }
+  #pricesHeader, prices, #bioHeader, bio, #appointmentHeader, appointment {
+    border-right: 5px solid #fff;
+    border-left: 5px solid #fff;
   }
 }
