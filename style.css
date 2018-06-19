@@ -38,21 +38,22 @@ p {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 45px;
+  grid-template-rows: 45px 45px 45px;
 }
 
 #logo {
-  grid-column: 1 / 1;
-  grid-row: 1 / 1;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
   background-color: #363636;
   color: #fff;
   line-height: 45px;
   padding-left: 15px;
+  font-size: 20px;
 }
 
 #links {
-  grid-column: 2 / span 3;
-  grid-row: 1 / 1;
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
   background-color: #363636;
   text-align: right;
   padding-right: 15px;
@@ -63,4 +64,32 @@ body {
   line-height: 45px;
   font-size: 15px;
   color: #fff;
+  text-decoration: none;
+}
+
+footer {
+  grid-column: 1 / span 4;
+  grid-row: 3 / span 1;
+  background-color: #363636;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 415px) {
+  #logo {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    text-align: center;
+    padding: 0;
+  }
+  
+  #links {
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 1;
+    text-align: center;
+    padding: 0;
+    background-color: #414141;
+  }
 }
