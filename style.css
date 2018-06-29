@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Pacifico|Roboto:100,300,400,500,700");
 * {
   margin: 0;
   padding: 0;
+  z-index: 1;
 }
 
 body {
@@ -28,30 +29,41 @@ p {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 45px 45px 1fr 45px;
+  grid-template-rows: 60px 60px 1fr 45px;
+}
+
+button {
+  background-color: #662852;
+  border: #88376e;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  margin: 15px;
+  font-size: .4em;
 }
 
 #logo {
   grid-column: 1 / span 2;
   grid-row: 1 / span 1;
-  background-color: #363636;
+  background-color: #50153D;
   color: #fff;
-  line-height: 45px;
+  line-height: 60px;
   padding-left: 15px;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Pacifico', cursive;
 }
 
 #links {
   grid-column: 3 / span 2;
   grid-row: 1 / span 1;
-  background-color: #363636;
+  background-color: #50153D;
   text-align: right;
   padding-right: 15px;
 }
 
 #links > a {
   margin: 15px;
-  line-height: 45px;
+  line-height: 60px;
   font-size: 13px;
   color: #fff;
   text-decoration: none;
@@ -65,9 +77,70 @@ main {
   grid-auto-rows: auto;
 }
 
+slider {
+  grid-column: 1 / span 6;
+  grid-row: 1 / span 1;
+  height: Calc(100vh - 60px);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* slider > img, slider > div {
+  height: 0;
+  width: 0;
+} */
+
+slider > img {
+  position: absolute;
+  top: 150px;
+  filter:blur(10px);
+  -webkit-filter:blur(10px);
+  -moz-filter:blur(10px);
+  height: Calc(100vh - 60px);
+  width: auto;
+  animation: slideOutToRightImage 2s;
+  transform: scale(1.15) translateX(100%);
+}
+
+@keyframes slideInFromLeftImage {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(-50vw);
+  }
+}
+
+@keyframes slideOutToRightImage {
+  from {
+    transform: translateX(-50vw);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+slider > img.active {
+  animation: slideInFromLeftImage 2s;
+  transform: translateX(-50vw);
+}
+
+slider > div.active {
+  opacity: 1;
+  display: inherit;
+  position: absolute;
+  top: Calc(50% - 2em);
+  text-align: center;
+  width: 100vw;
+  font-size: 4em;
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+  text-shadow: 0px 0px 10px #000;
+}
+
 header {
   width: Calc(100% - 20px);
-  background-color: #5a5a5a;
+  background-color: #83416D;
   padding: 5px 5px 5px 15px;
   position: sticky;
   position: -webkit-sticky;
@@ -81,24 +154,8 @@ header > h2 {
   font-size: 20px;
 }
 
-portfolio {
+#pricesHeader {
   grid-row: 2 / span 1;
-  grid-column: 1 / span 6;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-}
-
-portfolio > column {
-  flex: 50%;
-  max-width: Calc(50% - 10px);
-  padding: 0 5px;
-}
-
-portfolio > column > img {
-  width: 100%;
-  vertical-align: middle;
-  padding: 5px 0;
 }
 
 prices {
@@ -106,7 +163,7 @@ prices {
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 35px;
   padding: 5px;
-  grid-row: 4 / span 1;
+  grid-row: 3 / span 1;
   grid-column: 1 / span 6;
 }
 
@@ -124,22 +181,61 @@ prices > div:nth-child(even) {
   text-align: right;
 }
 
+#bioHeader {
+  grid-row: 4 / span 1;
+}
+
 bio {
+  grid-column: 1 / span 6;
+  grid-row: 5 / span 1;
+  padding: 10px;
+  display: block;
+}
+
+#appointmentHeader {
+  grid-row: 6 / span 1;
+}
+
+appointment {
+  grid-row: 7 / span 1;
   grid-column: 1 / span 6;
   padding: 10px;
   display: block;
 }
 
-appointment {
+#portfolioHeader {
+  grid-row: 8 / span 1;
+}
+
+portfolio {
+  grid-row: 9 / span 1;
   grid-column: 1 / span 6;
-  padding: 10px;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+portfolio > column {
+  flex: 50%;
+  max-width: Calc(50% - 10px);
+  padding: 0 5px;
+}
+
+portfolio > column > img {
+  width: 100%;
+  vertical-align: middle;
+  padding: 5px 0;
+  transition: all .25s;
+}
+
+portfolio > column > img:hover {
+  transform: scale(1.15);
 }
 
 footer {
   grid-column: 1 / span 4;
   grid-row: 4 / span 1;
-  background-color: #363636;
+  background-color: #83416D;
   text-align: center;
   line-height: 45px;
   color: #fff;
@@ -148,10 +244,10 @@ footer {
 
 @media only screen and (max-width: 325px) {
   body {
-    grid-template-rows: 45px 90px 1fr 45px;
+    grid-template-rows: 60px 90px 1fr 45px;
   }
 }
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 780px) {
   #logo {
     grid-column: 1 / span 4;
     grid-row: 1 / span 1;
@@ -164,13 +260,13 @@ footer {
     grid-row: 2 / span 1;
     text-align: center;
     padding: 0;
-    background-color: #414141;
+    background-color: #662852;
   }
 }
 
-@media only screen and (min-width: 415px) {
+@media only screen and (min-width: 781px) {
   body {
-    grid-template-rows: 45px 1fr 45px;
+    grid-template-rows: 60px 1fr 45px;
   }
   main {
     grid-row: 2 / span 1;

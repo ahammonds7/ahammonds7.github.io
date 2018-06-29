@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Haley Hammonds</title>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="./style.css" />
         <meta name="viewport" content="width=device-width">
     </head>
@@ -15,41 +16,23 @@
             <a href="#appointment">Appointment</a>
         </div>
         <main>
-            <header>
-                <a name="portfolio"></a>
-                <h2>Portfolio</h2>
-            </header>
-            <portfolio>
-                <column>
-                    <img src="./images/IMG_0132.jpg" />
-                    <img src="./images/IMG_0131.jpg" />
-                    <img src="./images/IMG_0133.jpg" />
-                    <img src="./images/IMG_0134.jpg" />
-                    <img src="./images/IMG_0698.jpg" />
-                </column>
-                <column>
-                    <img src="./images/IMG_0700.jpg" />
-                    <img src="./images/IMG_1009.jpg" />
-                    <img src="./images/IMG_1010.jpg" />
-                    <img src="./images/IMG_1034.jpg" />
-                    <img src="./images/IMG_1035.jpg" />
-                </column>
-                <column>
-                    <img src="./images/IMG_1036.jpg" />
-                    <img src="./images/IMG_1049.jpg" />
-                    <img src="./images/IMG_1050.jpg" />
-                    <img src="./images/IMG_1051.jpg" />
-                    <img src="./images/IMG_1052.jpg" />
-                </column>
-                <column>
-                    <img src="./images/IMG_1089.jpg" />
-                    <img src="./images/IMG_1091.jpg" />
-                    <img src="./images/IMG_1092.jpg" />
-                    <img src="./images/IMG_1139.jpg" />
-                    <img src="./images/IMG_1140.jpg" />
-                    <img src="./images/IMG_1141.jpg" />
-                </column>
-            </portfolio>
+            <slider>
+                <img class="active" src="./images/IMG_1091.jpg" />
+                <div class="active">
+                    <!-- Book an appointment today!<br/>
+                    <a href="#appointment"><button>Book Now!</button></a> -->
+                </div>
+                <img src="./images/IMG_1050.jpg" />
+                <div>
+                    <!-- Book an appointment today!<br/>
+                    <a href="#appointment"><button>Book Now!</button></a> -->
+                </div>
+                <img src="./images/IMG_0700.jpg" />
+                <div>
+                    <!-- Book an appointment today!<br/>
+                    <a href="#appointment"><button>Book Now!</button></a> -->
+                </div>
+            </slider>
             <header id="pricesHeader">
                 <a name="prices"></a>
                 <h2>Prices</h2>
@@ -93,9 +76,45 @@
                 <p>Text: <a href="sms:3146774455">(314) 677-4455</a></p>
                 <p>Email: <a href="mailto:haley.e.hammonds@gmail.com">haley.e.hammonds@gmail.com</a></p>
             </appointment>
+            <header id="portfolioHeader">
+                <a name="portfolio"></a>
+                <h2>Portfolio</h2>
+            </header>
+            <portfolio>
+                <column>
+                    <img src="./images/IMG_0132.jpg" />
+                    <img src="./images/IMG_0131.jpg" />
+                    <img src="./images/IMG_0133.jpg" />
+                    <img src="./images/IMG_0134.jpg" />
+                    <img src="./images/IMG_0698.jpg" />
+                </column>
+                <column>
+                    <img src="./images/IMG_0700.jpg" />
+                    <img src="./images/IMG_1009.jpg" />
+                    <img src="./images/IMG_1010.jpg" />
+                    <img src="./images/IMG_1034.jpg" />
+                    <img src="./images/IMG_1035.jpg" />
+                </column>
+                <column>
+                    <img src="./images/IMG_1036.jpg" />
+                    <img src="./images/IMG_1049.jpg" />
+                    <img src="./images/IMG_1050.jpg" />
+                    <img src="./images/IMG_1051.jpg" />
+                    <img src="./images/IMG_1052.jpg" />
+                </column>
+                <column>
+                    <img src="./images/IMG_1089.jpg" />
+                    <img src="./images/IMG_1091.jpg" />
+                    <img src="./images/IMG_1092.jpg" />
+                    <img src="./images/IMG_1139.jpg" />
+                    <img src="./images/IMG_1140.jpg" />
+                    <img src="./images/IMG_1141.jpg" />
+                </column>
+            </portfolio>
         </main>
         <footer>
             Copyright &copy; <script type="text/javascript"> document.write(new Date().getFullYear()) </script> Haley Hammonds
         </footer>
+        <script src="./main.js"></script>
     </body>
 </html>
